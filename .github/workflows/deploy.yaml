@@ -9,13 +9,15 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+
         steps:
             - name: Checkout Code
-            uses: actions/checkout@v4
+              uses: actions/checkout@v4
+
 
             - name: deploy via ssh
-            uses: appleboy/ssh-action@v1.0.3
-            with:
+              uses: appleboy/ssh-action@v1.0.3
+              with:
                 host: ${{secrets.SSH_HOST}}
                 username: ubuntu
                 key: ${{secrets.EC2_SSH_KEY}}
